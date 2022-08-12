@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "924515969611",
+    "project_id": "admilpanel",
+    "storage_bucket": "admilpanel.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:924515969611:android:ae3b4684f79d8e7738bbce",
+        "android_client_info": {
+          "package_name": "com.example.adminpanel"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "924515969611-9k13av4ue1hmtpglb9a62e5u1vms1l0n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAMaYPzrVEs6Lbc9HS19qlBL5s174QvI4A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "924515969611-9k13av4ue1hmtpglb9a62e5u1vms1l0n.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
