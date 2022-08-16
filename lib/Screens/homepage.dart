@@ -1,3 +1,7 @@
+import 'package:adminpanel/widgets/charts/bar_chart.dart';
+import 'package:adminpanel/widgets/charts/line_chart.dart';
+import 'package:adminpanel/widgets/charts/pie_chart.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_admin_scaffold/admin_scaffold.dart';
 
@@ -12,86 +16,94 @@ class HomePage extends StatelessWidget {
         title: const Text('Sample'),
       ),
       sideBar: SideBar(
-        items: const [
-          AdminMenuItem(
-            title: 'Dashboard',
-            route: '/',
-            icon: Icons.dashboard,
-          ),
-          AdminMenuItem(
-            title: 'Top Level',
-            icon: Icons.file_copy,
+        header: Container(
+          color: Theme.of(context).primaryColor,
+          child: Row(
             children: [
-              AdminMenuItem(
-                title: 'Second Level Item 1',
-                route: '/secondLevelItem1',
+              CircleAvatar(
+                radius: 25,
+                backgroundColor: Theme.of(context).primaryColor,
+                backgroundImage: AssetImage("assets/images/logo.png"),
               ),
-              AdminMenuItem(
-                title: 'Second Level Item 2',
-                route: '/secondLevelItem2',
-              ),
-              AdminMenuItem(
-                title: 'Third Level',
-                children: [
-                  AdminMenuItem(
-                    title: 'Third Level Item 1',
-                    route: '/thirdLevelItem1',
-                  ),
-                  AdminMenuItem(
-                    title: 'Third Level Item 2',
-                    route: '/thirdLevelItem2',
-                  ),
-                ],
-              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 14.0),
+                child: Text("The Titanium",
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 20,
+                        fontWeight: FontWeight.w500)),
+              )
             ],
           ),
+        ),
+        textStyle: TextStyle(color: Colors.white),
+        backgroundColor: Theme.of(context).primaryColor,
+        items: const [
+          AdminMenuItem(title: "Home", icon: Icons.home, route: '/home'),
+          AdminMenuItem(title: "Users", icon: Icons.people, route: '/users'),
+          AdminMenuItem(title: "Logout", icon: Icons.logout, route: '/login'),
         ],
         selectedRoute: '/',
-        onSelected: (item) {
-          if (item.route != null) {
-            Navigator.of(context).pushNamed(item.route!);
+        onSelected: (AdminMenuItem data) {
+          if (data.route == "/login") {
+            FirebaseAuth.instance.signOut();
+            Navigator.of(context)
+                .pushNamedAndRemoveUntil(data.route!, (route) => false);
+          } else {
+            Navigator.pushNamed(context, data.route!);
           }
         },
-        header: Container(
-          height: 50,
-          width: double.infinity,
-          color: const Color(0xff444444),
-          child: const Center(
-            child: Text(
-              'header',
-              style: TextStyle(
-                color: Colors.white,
-              ),
-            ),
-          ),
-        ),
-        footer: Container(
-          height: 50,
-          width: double.infinity,
-          color: const Color(0xff444444),
-          child: const Center(
-            child: Text(
-              'footer',
-              style: TextStyle(
-                color: Colors.white,
-              ),
-            ),
-          ),
-        ),
       ),
       body: SingleChildScrollView(
-        child: Container(
-          alignment: Alignment.topLeft,
-          padding: const EdgeInsets.all(10),
-          child: const Text(
-            'Dashboard',
-            style: TextStyle(
-              fontWeight: FontWeight.w700,
-              fontSize: 36,
-            ),
+          child: Column(
+        children: [
+          PieChart(
+            data: [
+              {'domain': 'Case A', 'measure': 28},
+              {'domain': 'Case B', 'measure': 27},
+              {'domain': 'Case C', 'measure': 20},
+              {'domain': 'Case D', 'measure': 15},
+            ],
           ),
-        ),
-      ),
+          SizedBox(
+            height: 30,
+          ),
+          LineChart(
+            data: [
+              {'domain': 0, 'measure': 1},
+              {'domain': 2, 'measure': 2},
+              {'domain': 3, 'measure': 3},
+              {'domain': 4, 'measure': 3},
+              {'domain': 5, 'measure': 6},
+              {'domain': 6, 'measure': 8},
+              {'domain': 7, 'measure': 10},
+            ],
+          ),
+          SizedBox(
+            height: 30,
+          ),
+          BarChart(
+            height: 300,
+            width: 300,
+            color: Colors.green,
+            data: [
+              {'domain': 'A', 'measure': 10},
+              {'domain': 'B', 'measure': 20},
+              {'domain': 'C', 'measure': 30},
+              {'domain': 'D', 'measure': 40},
+              {'domain': 'E', 'measure': 50},
+              {'domain': 'F', 'measure': 60},
+              {'domain': 'G', 'measure': 70},
+              {'domain': 'H', 'measure': 80},
+              {'domain': 'I', 'measure': 90},
+              {'domain': 'J', 'measure': 100},
+            ],
+          ),
+          SizedBox(
+            height: 40,
+          )
+        ],
+      )),
     );
   }
 }
