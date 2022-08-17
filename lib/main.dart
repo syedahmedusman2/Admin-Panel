@@ -1,3 +1,4 @@
+import 'package:adminpanel/Screens/UsersPage.dart';
 import 'package:adminpanel/Screens/homepage.dart';
 import 'package:adminpanel/Screens/login_screen.dart';
 import 'package:adminpanel/constants/colors.dart';
@@ -24,6 +25,7 @@ class MyApp extends StatelessWidget {
       routes: {
         '/home': (context) => HomePage(),
         '/login': (context) => LoginPage(),
+        '/users': (context) => UsersPage(),
       },
       initialRoute: '/login',
       title: 'Flutter Demo',

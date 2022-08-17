@@ -1,6 +1,7 @@
 import 'package:adminpanel/widgets/charts/bar_chart.dart';
 import 'package:adminpanel/widgets/charts/line_chart.dart';
 import 'package:adminpanel/widgets/charts/pie_chart.dart';
+import 'package:adminpanel/widgets/sidemenu.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_admin_scaffold/admin_scaffold.dart';
@@ -15,45 +16,7 @@ class HomePage extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Sample'),
       ),
-      sideBar: SideBar(
-        header: Container(
-          color: Theme.of(context).primaryColor,
-          child: Row(
-            children: [
-              CircleAvatar(
-                radius: 25,
-                backgroundColor: Theme.of(context).primaryColor,
-                backgroundImage: AssetImage("assets/images/logo.png"),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(left: 14.0),
-                child: Text("The Titanium",
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 20,
-                        fontWeight: FontWeight.w500)),
-              )
-            ],
-          ),
-        ),
-        textStyle: TextStyle(color: Colors.white),
-        backgroundColor: Theme.of(context).primaryColor,
-        items: const [
-          AdminMenuItem(title: "Home", icon: Icons.home, route: '/home'),
-          AdminMenuItem(title: "Users", icon: Icons.people, route: '/users'),
-          AdminMenuItem(title: "Logout", icon: Icons.logout, route: '/login'),
-        ],
-        selectedRoute: '/',
-        onSelected: (AdminMenuItem data) {
-          if (data.route == "/login") {
-            FirebaseAuth.instance.signOut();
-            Navigator.of(context)
-                .pushNamedAndRemoveUntil(data.route!, (route) => false);
-          } else {
-            Navigator.pushNamed(context, data.route!);
-          }
-        },
-      ),
+      sideBar: sidebarWidget(context, 'home'),
       body: SingleChildScrollView(
           child: Column(
         children: [
