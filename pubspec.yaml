@@ -40,6 +40,8 @@ dependencies:
   firebase_auth: any
   google_fonts: ^3.0.1
   d_chart: ^0.0.4
+  file_picker: ^4.6.1
+  firebase_storage: ^10.3.6
 dev_dependencies:
   flutter_test:
     sdk: flutter

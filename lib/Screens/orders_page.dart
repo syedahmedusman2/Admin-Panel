@@ -21,7 +21,7 @@ class _OrdersHistoryState extends State<OrdersHistory> {
   @override
   Widget build(BuildContext context) {
     return AdminScaffold(
-        sideBar: sidebarWidget(context, '/orders'),
+        sideBar: sidebarWidget(context, 'orders'),
         body: StreamBuilder(
           stream: _dataStream,
           builder: (context, snapshot) {

@@ -30,6 +30,8 @@ SideBar sidebarWidget(context, route) {
       AdminMenuItem(title: "Home", icon: Icons.home, route: '/home'),
       AdminMenuItem(title: "Users", icon: Icons.people, route: '/users'),
       AdminMenuItem(title: "Orders", icon: Icons.history, route: '/orders'),
+      AdminMenuItem(
+          title: "Products", icon: Icons.shopping_bag, route: '/products'),
       AdminMenuItem(title: "Logout", icon: Icons.logout, route: '/login'),
     ],
     activeBackgroundColor: Color(0xff6938ec),
