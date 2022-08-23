@@ -16,6 +16,7 @@ createNewProductPopup(BuildContext context) {
         TextEditingController _productController = TextEditingController();
         TextEditingController _productIdController = TextEditingController();
         TextEditingController _amountController = TextEditingController();
+        TextEditingController _totalUnits = TextEditingController();
         Uint8List? image;
         String? imageName;
         return AlertDialog(
@@ -37,7 +38,7 @@ createNewProductPopup(BuildContext context) {
                 ),
                 TextField(
                   controller: _descriptionController,
-                  maxLines: 3,
+                  maxLines: 2,
                   decoration: InputDecoration(
                     labelText: 'Description',
                     border: OutlineInputBorder(),
@@ -70,6 +71,16 @@ createNewProductPopup(BuildContext context) {
                   controller: _amountController,
                   decoration: InputDecoration(
                     labelText: 'Amount',
+                    border: OutlineInputBorder(),
+                  ),
+                ),
+                SizedBox(
+                  height: 15,
+                ),
+                TextField(
+                  controller: _totalUnits,
+                  decoration: InputDecoration(
+                    labelText: 'Total Units',
                     border: OutlineInputBorder(),
                   ),
                 ),
@@ -109,9 +120,9 @@ createNewProductPopup(BuildContext context) {
                           'name': _productNameController.text,
                           'description': _descriptionController.text,
                           'estimatedTime': _estimatedTimeController.text,
-                          'product': _productController.text,
                           'productId': _productIdController.text,
                           'amount': _amountController.text,
+                          'units': _totalUnits.text,
                           'image': url
                         });
                       });
