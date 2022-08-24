@@ -1,6 +1,9 @@
+import 'dart:ui';
+
 import 'package:adminpanel/widgets/charts/bar_chart.dart';
 import 'package:adminpanel/widgets/charts/line_chart.dart';
 import 'package:adminpanel/widgets/charts/pie_chart.dart';
+import 'package:adminpanel/widgets/glass_morphism.dart';
 import 'package:adminpanel/widgets/sidemenu.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -20,35 +23,8 @@ class HomePage extends StatelessWidget {
       body: SingleChildScrollView(
           child: Column(
         children: [
-          PieChart(
-            data: [
-              {'domain': 'Case A', 'measure': 28},
-              {'domain': 'Case B', 'measure': 27},
-              {'domain': 'Case C', 'measure': 20},
-              {'domain': 'Case D', 'measure': 15},
-            ],
-          ),
-          SizedBox(
-            height: 30,
-          ),
-          LineChart(
-            data: [
-              {'domain': 0, 'measure': 1},
-              {'domain': 2, 'measure': 2},
-              {'domain': 3, 'measure': 3},
-              {'domain': 4, 'measure': 3},
-              {'domain': 5, 'measure': 6},
-              {'domain': 6, 'measure': 8},
-              {'domain': 7, 'measure': 10},
-            ],
-          ),
-          SizedBox(
-            height: 30,
-          ),
+          Text("HELLO WORLD"),
           BarChart(
-            height: 300,
-            width: 300,
-            color: Colors.green,
             data: [
               {'domain': 'A', 'measure': 10},
               {'domain': 'B', 'measure': 20},
@@ -62,9 +38,39 @@ class HomePage extends StatelessWidget {
               {'domain': 'J', 'measure': 100},
             ],
           ),
-          SizedBox(
-            height: 40,
-          )
+          Form(
+              child: GlassMorphism(
+                  start: 0.6,
+                  end: 0.7,
+                  child: Column(mainAxisSize: MainAxisSize.min, children: [
+                    Padding(
+                        padding: EdgeInsets.all(8.0),
+                        child: BarChart(
+                          data: [
+                            {'domain': 'A', 'measure': 10},
+                            {'domain': 'B', 'measure': 20},
+                            {'domain': 'C', 'measure': 30},
+                            {'domain': 'D', 'measure': 40},
+                            {'domain': 'E', 'measure': 50},
+                            {'domain': 'F', 'measure': 60},
+                            {'domain': 'G', 'measure': 70},
+                            {'domain': 'H', 'measure': 80},
+                            {'domain': 'I', 'measure': 90},
+                            {'domain': 'J', 'measure': 100},
+                          ],
+                        )),
+                  ])))
+
+          // Container(
+          //   height: 200,
+          //   width: 300,
+          //   child: BackdropFilter(
+          //     filter: ImageFilter.blur(sigmaX: 4.0, sigmaY: 4.0),
+          //     child: Container(
+          //       decoration: BoxDecoration(color: Colors.white.withOpacity(0.0)),
+          //     ),
+          //   ),
+          // )
         ],
       )),
     );
