@@ -13,8 +13,6 @@ class ProductPage extends StatefulWidget {
 }
 
 class _ProductPageState extends State<ProductPage> {
-  // Stream _dataStream =
-
   @override
   Widget build(BuildContext context) {
     return AdminScaffold(
@@ -89,12 +87,12 @@ class _ProductPageState extends State<ProductPage> {
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: Image.network(
-              "https://pngimg.com/uploads/iphone_13/iphone_13_PNG22.png",
+              "${data['image']}",
               height: (MediaQuery.of(context).size.height * 0.28) / 2,
             ),
           ),
           Text(
-            "IPhone 13",
+            "${data['name']}",
             style: TextStyles.heading4,
           ),
           Row(
@@ -103,12 +101,20 @@ class _ProductPageState extends State<ProductPage> {
                 width: 10,
               ),
               Text(
-                "999\$",
+                "${data['amount']}\$",
                 style: TextStyles.regular3.copyWith(color: Colors.grey),
               ),
               Spacer(),
               IconButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    FirebaseFirestore.instance
+                        .collection('products')
+                        .doc(documentSnapshot.id)
+                        .delete()
+                        .then((value) => ScaffoldMessenger.of(context)
+                            .showSnackBar(
+                                SnackBar(content: Text("Item Deleted"))));
+                  },
                   icon: Icon(
                     Icons.delete,
                     color: Colors.red,
@@ -124,14 +130,19 @@ class _ProductPageState extends State<ProductPage> {
                 width: 10,
               ),
               Text(
-                "ID: IP13P",
+                "${data['productId']}",
                 style: TextStyles.regular4,
               ),
               Spacer(),
-              Text(
-                "In Stock",
-                style: TextStyle(color: Colors.green),
-              ),
+              data['units'] != 0
+                  ? Text(
+                      "${data['units']} Units",
+                      style: TextStyle(color: Colors.green),
+                    )
+                  : Text(
+                      "No Stock",
+                      style: TextStyle(color: Colors.red),
+                    ),
               SizedBox(
                 width: 10,
               ),
