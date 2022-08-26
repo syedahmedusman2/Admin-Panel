@@ -43,22 +43,7 @@ class HomePage extends StatelessWidget {
                   start: 0.6,
                   end: 0.7,
                   child: Column(mainAxisSize: MainAxisSize.min, children: [
-                    Padding(
-                        padding: EdgeInsets.all(8.0),
-                        child: BarChart(
-                          data: [
-                            {'domain': 'A', 'measure': 10},
-                            {'domain': 'B', 'measure': 20},
-                            {'domain': 'C', 'measure': 30},
-                            {'domain': 'D', 'measure': 40},
-                            {'domain': 'E', 'measure': 50},
-                            {'domain': 'F', 'measure': 60},
-                            {'domain': 'G', 'measure': 70},
-                            {'domain': 'H', 'measure': 80},
-                            {'domain': 'I', 'measure': 90},
-                            {'domain': 'J', 'measure': 100},
-                          ],
-                        )),
+                    Padding(padding: EdgeInsets.all(8.0), child: PieChart()),
                   ])))
 
           // Container(

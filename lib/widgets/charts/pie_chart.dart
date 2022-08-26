@@ -2,8 +2,8 @@ import 'package:d_chart/d_chart.dart';
 import 'package:flutter/material.dart';
 
 class PieChart extends StatelessWidget {
-  const PieChart({Key? key, required this.data}) : super(key: key);
-  final List<Map<String, dynamic>> data;
+  const PieChart({Key? key, this.data}) : super(key: key);
+  final List<Map<String, dynamic>>? data;
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +13,10 @@ class PieChart extends StatelessWidget {
       child: DChartPie(
         labelPosition: PieLabelPosition.outside,
         animate: true,
-        data: data,
+        data: [
+          {'domain': "Flutter", 'measure': 20},
+          {'domain': "Fluttera", 'measure': 25},
+        ],
         pieLabel: (pieData, index) {
           return "${pieData['domain']}:\n${pieData['measure']}%";
         },
