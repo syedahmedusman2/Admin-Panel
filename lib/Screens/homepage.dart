@@ -1,5 +1,6 @@
 import 'dart:ui';
 
+import 'package:adminpanel/services/get_chart_data.dart';
 import 'package:adminpanel/widgets/charts/bar_chart.dart';
 import 'package:adminpanel/widgets/charts/line_chart.dart';
 import 'package:adminpanel/widgets/charts/pie_chart.dart';
@@ -24,20 +25,23 @@ class HomePage extends StatelessWidget {
           child: Column(
         children: [
           Text("HELLO WORLD"),
-          BarChart(
-            data: [
-              {'domain': 'A', 'measure': 10},
-              {'domain': 'B', 'measure': 20},
-              {'domain': 'C', 'measure': 30},
-              {'domain': 'D', 'measure': 40},
-              {'domain': 'E', 'measure': 50},
-              {'domain': 'F', 'measure': 60},
-              {'domain': 'G', 'measure': 70},
-              {'domain': 'H', 'measure': 80},
-              {'domain': 'I', 'measure': 90},
-              {'domain': 'J', 'measure': 100},
-            ],
-          ),
+          FutureBuilder(
+              future: getChartData(),
+              builder: (context, AsyncSnapshot snap) {
+                if (!snap.hasData) {
+                  return Center(
+                    child: CircularProgressIndicator(),
+                  );
+                } else {
+                  return BarChart(data: snap.data);
+                }
+              }),
+
+          ElevatedButton(
+              onPressed: () {
+                getChartData();
+              },
+              child: Text("HELLO")),
           Form(
               child: GlassMorphism(
                   start: 0.6,
