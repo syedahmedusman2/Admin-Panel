@@ -1,6 +1,6 @@
 import 'dart:ui';
 
-import 'package:adminpanel/services/get_chart_data.dart';
+import 'package:adminpanel/services/get_user_joining_data.dart';
 import 'package:adminpanel/widgets/charts/bar_chart.dart';
 import 'package:adminpanel/widgets/charts/line_chart.dart';
 import 'package:adminpanel/widgets/charts/pie_chart.dart';
@@ -23,32 +23,75 @@ class HomePage extends StatelessWidget {
       sideBar: sidebarWidget(context, 'home'),
       body: SingleChildScrollView(
           child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text("HELLO WORLD"),
-          FutureBuilder(
-              future: getChartData(),
-              builder: (context, AsyncSnapshot snap) {
-                if (!snap.hasData) {
-                  return Center(
-                    child: CircularProgressIndicator(),
-                  );
-                } else {
-                  return BarChart(data: snap.data);
-                }
-              }),
-
-          ElevatedButton(
-              onPressed: () {
-                getChartData();
-              },
-              child: Text("HELLO")),
-          Form(
-              child: GlassMorphism(
-                  start: 0.6,
-                  end: 0.7,
-                  child: Column(mainAxisSize: MainAxisSize.min, children: [
-                    Padding(padding: EdgeInsets.all(8.0), child: PieChart()),
-                  ])))
+          Wrap(
+            clipBehavior: Clip.antiAlias,
+            runSpacing: 100,
+            spacing: 18,
+            children: [
+              GlassMorphism(
+                start: 0.6,
+                end: 0.7,
+                child: FutureBuilder(
+                    future: getUserJoiningData(),
+                    builder: (context, AsyncSnapshot snap) {
+                      if (!snap.hasData) {
+                        return Center(
+                          child: CircularProgressIndicator(),
+                        );
+                      } else {
+                        return BarChart(data: snap.data);
+                      }
+                    }),
+              ),
+              GlassMorphism(
+                start: 0.6,
+                end: 0.7,
+                child: FutureBuilder(
+                    future: getUserJoiningData(),
+                    builder: (context, AsyncSnapshot snap) {
+                      if (!snap.hasData) {
+                        return Center(
+                          child: CircularProgressIndicator(),
+                        );
+                      } else {
+                        return BarChart(data: snap.data);
+                      }
+                    }),
+              ),
+              GlassMorphism(
+                start: 0.6,
+                end: 0.7,
+                child: FutureBuilder(
+                    future: getUserJoiningData(),
+                    builder: (context, AsyncSnapshot snap) {
+                      if (!snap.hasData) {
+                        return Center(
+                          child: CircularProgressIndicator(),
+                        );
+                      } else {
+                        return BarChart(data: snap.data);
+                      }
+                    }),
+              )
+            ],
+          ),
+          GlassMorphism(
+            start: 0.6,
+            end: 0.7,
+            child: FutureBuilder(
+                future: getUserJoiningData(),
+                builder: (context, AsyncSnapshot snap) {
+                  if (!snap.hasData) {
+                    return Center(
+                      child: CircularProgressIndicator(),
+                    );
+                  } else {
+                    return BarChart(data: snap.data);
+                  }
+                }),
+          )
 
           // Container(
           //   height: 200,

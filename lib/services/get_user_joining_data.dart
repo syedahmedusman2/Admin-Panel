@@ -1,7 +1,7 @@
 import 'package:adminpanel/model/chart_model.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
-Future<List<Map<String, dynamic>>> getChartData() async {
+Future<List<Map<String, dynamic>>> getUserJoiningData() async {
   List yearOfJoining = [];
   List<Map<String, dynamic>> chartData = [];
   await FirebaseFirestore.instance
@@ -10,10 +10,6 @@ Future<List<Map<String, dynamic>>> getChartData() async {
       .then((QuerySnapshot querySnapshot) {
     querySnapshot.docs.forEach((doc) {
       yearOfJoining.add(DateTime.parse(doc['Date']).year);
-      chartData.add({
-        "domain": DateTime.parse(doc['Date']).year.toString(),
-        "measure": 5
-      });
     });
   });
   Map<int, int> count = {};
