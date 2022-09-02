@@ -25,24 +25,39 @@ class HomePage extends StatelessWidget {
           child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Row(
+          Wrap(
             children: [
               GlassMorphism(
                 start: 0.6,
                 end: 0.7,
-                child: FutureBuilder(
-                    future: getUserJoiningData(),
-                    builder: (context, AsyncSnapshot snap) {
-                      if (!snap.hasData) {
-                        return Center(
-                          child: CircularProgressIndicator(),
-                        );
-                      } else {
-                        return BarChart(data: snap.data);
-                      }
-                    }),
+                child: Container(
+                  height: 300,
+                  width: 300,
+                  child: FutureBuilder(
+                      future: getUserJoiningData(),
+                      builder: (context, AsyncSnapshot snap) {
+                        if (!snap.hasData) {
+                          return Center(
+                            child: CircularProgressIndicator(),
+                          );
+                        } else {
+                          return BarChart(data: snap.data);
+                        }
+                      }),
+                ),
               ),
-              GlassMorphism(start: 0.6, end: 0.7, child: PieChart2()),
+              GlassMorphism(start: 0.6, end: 0.7, child: PieChart()),
+              GlassMorphism(
+                  start: 0.6,
+                  end: 0.7,
+                  child: LineChart(
+                    data: [
+                      {'domain': 0, 'measure': 4.1},
+                      {'domain': 2, 'measure': 4},
+                      {'domain': 3, 'measure': 6},
+                      {'domain': 4, 'measure': 1},
+                    ],
+                  )),
             ],
           )
 

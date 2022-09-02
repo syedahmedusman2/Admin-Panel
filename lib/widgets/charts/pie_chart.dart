@@ -8,14 +8,16 @@ class PieChart extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 400,
-      width: 500,
+      height: 300,
+      width: 300,
       child: DChartPie(
         labelPosition: PieLabelPosition.outside,
         animate: true,
         data: [
           {'domain': "Flutter", 'measure': 20},
-          {'domain': "Fluttera", 'measure': 25},
+          {'domain': "React", 'measure': 25},
+          {'domain': "Xamarin", 'measure': 10},
+          {'domain': "Ionic", 'measure': 6},
         ],
         pieLabel: (pieData, index) {
           return "${pieData['domain']}:\n${pieData['measure']}%";
