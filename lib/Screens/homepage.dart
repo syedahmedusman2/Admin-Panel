@@ -25,10 +25,7 @@ class HomePage extends StatelessWidget {
           child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Wrap(
-            clipBehavior: Clip.antiAlias,
-            runSpacing: 100,
-            spacing: 18,
+          Row(
             children: [
               GlassMorphism(
                 start: 0.6,
@@ -45,52 +42,8 @@ class HomePage extends StatelessWidget {
                       }
                     }),
               ),
-              GlassMorphism(
-                start: 0.6,
-                end: 0.7,
-                child: FutureBuilder(
-                    future: getUserJoiningData(),
-                    builder: (context, AsyncSnapshot snap) {
-                      if (!snap.hasData) {
-                        return Center(
-                          child: CircularProgressIndicator(),
-                        );
-                      } else {
-                        return BarChart(data: snap.data);
-                      }
-                    }),
-              ),
-              GlassMorphism(
-                start: 0.6,
-                end: 0.7,
-                child: FutureBuilder(
-                    future: getUserJoiningData(),
-                    builder: (context, AsyncSnapshot snap) {
-                      if (!snap.hasData) {
-                        return Center(
-                          child: CircularProgressIndicator(),
-                        );
-                      } else {
-                        return BarChart(data: snap.data);
-                      }
-                    }),
-              )
+              GlassMorphism(start: 0.6, end: 0.7, child: PieChart2()),
             ],
-          ),
-          GlassMorphism(
-            start: 0.6,
-            end: 0.7,
-            child: FutureBuilder(
-                future: getUserJoiningData(),
-                builder: (context, AsyncSnapshot snap) {
-                  if (!snap.hasData) {
-                    return Center(
-                      child: CircularProgressIndicator(),
-                    );
-                  } else {
-                    return BarChart(data: snap.data);
-                  }
-                }),
           )
 
           // Container(
