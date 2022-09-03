@@ -26,6 +26,7 @@ class HomePage extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               GlassMorphism(
                 start: 0.6,
@@ -58,6 +59,7 @@ class HomePage extends StatelessWidget {
                       {'domain': 4, 'measure': 1},
                     ],
                   )),
+              GlassMorphism(start: 0.6, end: 0.7, child: PieChart2()),
             ],
           )
 

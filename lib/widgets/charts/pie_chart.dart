@@ -45,8 +45,8 @@ class PieChart2 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 200,
-      width: 200,
+      height: MediaQuery.of(context).size.width * 0.2,
+      width: MediaQuery.of(context).size.width * 0.2,
       child: DChartPie(
         data: [
           {'domain': 'Flutter', 'measure': 28},
