@@ -8,8 +8,8 @@ class LineChart extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 300,
-      height: 300,
+      width: MediaQuery.of(context).size.width * 0.20,
+      height: MediaQuery.of(context).size.width * 0.20,
       child: DChartLine(
         includePoints: true,
         data: [

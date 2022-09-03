@@ -25,14 +25,14 @@ class HomePage extends StatelessWidget {
           child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Wrap(
+          Row(
             children: [
               GlassMorphism(
                 start: 0.6,
                 end: 0.7,
                 child: Container(
-                  height: 300,
-                  width: 300,
+                  height: MediaQuery.of(context).size.width * 0.20,
+                  width: MediaQuery.of(context).size.width * 0.20,
                   child: FutureBuilder(
                       future: getUserJoiningData(),
                       builder: (context, AsyncSnapshot snap) {
