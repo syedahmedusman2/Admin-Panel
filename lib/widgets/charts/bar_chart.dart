@@ -18,8 +18,8 @@ class BarChart extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: MediaQuery.of(context).size.width * 0.20,
-      width: MediaQuery.of(context).size.width * 0.20,
+      height: MediaQuery.of(context).size.width * 0.18,
+      width: MediaQuery.of(context).size.width * 0.18,
       child: DChartBar(
         data: [
           {

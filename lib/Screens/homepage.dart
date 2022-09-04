@@ -32,8 +32,8 @@ class HomePage extends StatelessWidget {
                 start: 0.6,
                 end: 0.7,
                 child: Container(
-                  height: MediaQuery.of(context).size.width * 0.20,
-                  width: MediaQuery.of(context).size.width * 0.20,
+                  height: MediaQuery.of(context).size.width * 0.18,
+                  width: MediaQuery.of(context).size.width * 0.18,
                   child: FutureBuilder(
                       future: getUserJoiningData(),
                       builder: (context, AsyncSnapshot snap) {
@@ -61,7 +61,145 @@ class HomePage extends StatelessWidget {
                   )),
               GlassMorphism(start: 0.6, end: 0.7, child: PieChart2()),
             ],
-          )
+          ),
+          SizedBox(
+            height: 10,
+          ),
+          GlassMorphism(
+              start: 0.6,
+              end: 0.7,
+              child: Container(
+                  width: double.infinity,
+                  height: MediaQuery.of(context).size.height * .15,
+                  child: Row(
+                    children: [
+                      //Daily Sale
+                      Container(
+                        decoration:
+                            BoxDecoration(border: Border(right: BorderSide())),
+                        width: MediaQuery.of(context).size.width * 0.1745,
+                        child: Column(
+                          children: [
+                            Icon(
+                              Icons.money,
+                              size: 32,
+                            ),
+                            Padding(
+                              padding: EdgeInsets.only(
+                                  bottom: MediaQuery.of(context).size.height *
+                                      0.02),
+                              child: Text(
+                                "Weekly Sale",
+                                style: Theme.of(context).textTheme.headline6,
+                              ),
+                            ),
+                            Text("1200\$",
+                                style: Theme.of(context).textTheme.bodyMedium)
+                          ],
+                        ),
+                      ),
+                      // Weekly Sale
+                      Container(
+                        decoration:
+                            BoxDecoration(border: Border(right: BorderSide())),
+                        width: MediaQuery.of(context).size.width * 0.1745,
+                        child: Column(
+                          children: [
+                            Icon(
+                              Icons.money,
+                              size: 32,
+                            ),
+                            Padding(
+                              padding: EdgeInsets.only(
+                                  bottom: MediaQuery.of(context).size.height *
+                                      0.02),
+                              child: Text(
+                                "Weekly Sale",
+                                style: Theme.of(context).textTheme.headline6,
+                              ),
+                            ),
+                            Text("1200\$",
+                                style: Theme.of(context).textTheme.bodyMedium)
+                          ],
+                        ),
+                      ),
+                      //Monthly Sale
+                      Container(
+                        decoration:
+                            BoxDecoration(border: Border(right: BorderSide())),
+                        width: MediaQuery.of(context).size.width * 0.1745,
+                        child: Column(
+                          children: [
+                            Icon(
+                              Icons.money,
+                              size: 32,
+                            ),
+                            Padding(
+                              padding: EdgeInsets.only(
+                                  bottom: MediaQuery.of(context).size.height *
+                                      0.02),
+                              child: Text(
+                                "Weekly Sale",
+                                style: Theme.of(context).textTheme.headline6,
+                              ),
+                            ),
+                            Text("1200\$",
+                                style: Theme.of(context).textTheme.bodyMedium)
+                          ],
+                        ),
+                      ),
+                      //Quaterly Sale
+                      Container(
+                        decoration:
+                            BoxDecoration(border: Border(right: BorderSide())),
+                        width: MediaQuery.of(context).size.width * 0.1745,
+                        child: Column(
+                          children: [
+                            Icon(
+                              Icons.money,
+                              size: 32,
+                            ),
+                            Padding(
+                              padding: EdgeInsets.only(
+                                  bottom: MediaQuery.of(context).size.height *
+                                      0.02),
+                              child: Text(
+                                "Weekly Sale",
+                                style: Theme.of(context).textTheme.headline6,
+                              ),
+                            ),
+                            Text("1200\$",
+                                style: Theme.of(context).textTheme.bodyMedium)
+                          ],
+                        ),
+                      ),
+                      // Yearly Sale
+                      Container(
+                        decoration:
+                            BoxDecoration(border: Border(right: BorderSide())),
+                        width: MediaQuery.of(context).size.width * 0.1745,
+                        child: Column(
+                          children: [
+                            Icon(
+                              Icons.money,
+                              size: 32,
+                            ),
+                            Padding(
+                              padding: EdgeInsets.only(
+                                  bottom: MediaQuery.of(context).size.height *
+                                      0.02),
+                              child: Text(
+                                "Weekly Sale",
+                                style: Theme.of(context).textTheme.headline6,
+                              ),
+                            ),
+                            Text("1200\$",
+                                style: Theme.of(context).textTheme.bodyMedium)
+                          ],
+                        ),
+                      )
+                    ],
+                  ))),
 
           // Container(
           //   height: 200,
