@@ -10,6 +10,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_admin_scaffold/admin_scaffold.dart';
 
+import '../widgets/reviews.dart';
+
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
 
@@ -194,12 +196,22 @@ class HomePage extends StatelessWidget {
                               ),
                             ),
                             Text("1200\$",
-                                style: Theme.of(context).textTheme.bodyMedium)
+                                style: Theme.of(context).textTheme.bodyMedium),
                           ],
                         ),
-                      )
+                      ),
                     ],
                   ))),
+          SizedBox(
+            height: 7,
+          ),
+          GlassMorphism(
+            start: 0.6,
+            end: 0.7,
+            child: Container(
+                height: MediaQuery.of(context).size.height * 0.4,
+                child: Reviews()),
+          )
 
           // Container(
           //   height: 200,
