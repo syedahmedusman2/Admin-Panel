@@ -1,15 +1,11 @@
-import 'dart:ui';
-
 import 'package:adminpanel/services/get_user_joining_data.dart';
 import 'package:adminpanel/widgets/charts/bar_chart.dart';
 import 'package:adminpanel/widgets/charts/line_chart.dart';
 import 'package:adminpanel/widgets/charts/pie_chart.dart';
 import 'package:adminpanel/widgets/glass_morphism.dart';
 import 'package:adminpanel/widgets/sidemenu.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_admin_scaffold/admin_scaffold.dart';
-
 import '../widgets/reviews.dart';
 
 class HomePage extends StatelessWidget {
@@ -91,7 +87,7 @@ class HomePage extends StatelessWidget {
                                   bottom: MediaQuery.of(context).size.height *
                                       0.02),
                               child: Text(
-                                "Weekly Sale",
+                                "Daily Sale",
                                 style: Theme.of(context).textTheme.headline6,
                               ),
                             ),
@@ -141,7 +137,7 @@ class HomePage extends StatelessWidget {
                                   bottom: MediaQuery.of(context).size.height *
                                       0.02),
                               child: Text(
-                                "Weekly Sale",
+                                "Monthly Sale",
                                 style: Theme.of(context).textTheme.headline6,
                               ),
                             ),
@@ -166,7 +162,7 @@ class HomePage extends StatelessWidget {
                                   bottom: MediaQuery.of(context).size.height *
                                       0.02),
                               child: Text(
-                                "Weekly Sale",
+                                "Quaterly Sale",
                                 style: Theme.of(context).textTheme.headline6,
                               ),
                             ),
@@ -191,7 +187,7 @@ class HomePage extends StatelessWidget {
                                   bottom: MediaQuery.of(context).size.height *
                                       0.02),
                               child: Text(
-                                "Weekly Sale",
+                                "Yearly Sale",
                                 style: Theme.of(context).textTheme.headline6,
                               ),
                             ),
@@ -212,17 +208,6 @@ class HomePage extends StatelessWidget {
                 height: MediaQuery.of(context).size.height * 0.4,
                 child: Reviews()),
           )
-
-          // Container(
-          //   height: 200,
-          //   width: 300,
-          //   child: BackdropFilter(
-          //     filter: ImageFilter.blur(sigmaX: 4.0, sigmaY: 4.0),
-          //     child: Container(
-          //       decoration: BoxDecoration(color: Colors.white.withOpacity(0.0)),
-          //     ),
-          //   ),
-          // )
         ],
       )),
     );
